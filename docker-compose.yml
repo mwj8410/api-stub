@@ -1,0 +1,42 @@
+version: '3.8'
+x-postgres:
+  &postgres
+  POSTGRES_DATABASE: postgres
+  POSTGRES_PASSWORD: admin
+  POSTGRES_PORT: 5432
+  POSTRGRE_SSL_MODE: disable
+  POSTGRES_URL: postgres
+  POSTGRES_USER: admin
+
+x-redis:
+  &redis
+  REDIS_HOST: localhost
+  REDIS_PASSWORD: letmein
+  REDIS_PORT: 6379
+
+services:
+
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile-node
+    depends_on:
+      - postgres
+    environment:
+      <<: *postgres
+      HOST_HTTP_PORT: 1337
+      LOGLEVEL: silly
+      NODE_ENV: develop
+
+  postgres:
+    image: postgres:latest
+    environment:
+      <<: *postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_vol:/var/lib/postgresql
+
+volumes:
+  postgres_vol:

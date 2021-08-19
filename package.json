@@ -1,0 +1,32 @@
+{
+  "name": "api-stub",
+  "version": "0.0.1",
+  "description": "This project is script runner with web UI.",
+  "author": "Matthew W. Jackson <mwj8410@gmail.com>",
+  "repository": "TODO",
+  "license": "UNLICENSED",
+  "main": "main.js",
+  "engines": {
+    "node": "^v16.3.0",
+    "npm": "^7.18.1"
+  },
+  "directories": {},
+  "scripts": {
+    "generate": "node ./generator/generator.js",
+    "local:strap": "env $(cat ./config/local.env)",
+    "start:local": "npm run local:strap node ./src/main.js",
+    "kill:node": "killall -9 node"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "change-case": "^4.1.2",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "fastest-validator": "^1.11.1",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6"
+  }
+}

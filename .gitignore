@@ -1,0 +1,20 @@
+# Sub Applications that are not tracked in this workspace
+app/PraxisClient
+
+# ToDo: evaluate if we want to ignore all ./app/* content or if we want to cherry-pick each project as being included
+# ./app/*
+# !./app/README.md
+
+# General
+node_modules
+*/node_modules
+
+sub_modules
+
+/env/local.env
+
+*/coverage
+
+# ##### ##### IDEs ##### ##### #
+.idea
+.vscode
